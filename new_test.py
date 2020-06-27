@@ -19,7 +19,7 @@ for index,char in enumerate(nodeslist):
     name = char.split()
     nodemap.update({index:name[1]})
 #output map example
-print(nodemap[1])
+#print(nodemap)
 
 branchemap = {}
 branches=txt.split('branches:')[1]
@@ -29,10 +29,10 @@ for char in brancheslist:
     name = char.split(', ')
     key = name[0]
     value = name[1]
-    if key not in branchemap:
-        branchemap[key] = []
-    branchemap[key].append(value)
-print(branchemap)
+    if int(key) not in branchemap:
+        branchemap[int(key)] = []
+    branchemap[int(key)].append(value)
 
-    #branchemap.update({index:name[1]})
+print(branchemap.get(1))
+
 
