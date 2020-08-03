@@ -11,12 +11,9 @@ class Data_tree:
     def addHigh(self, number):
         self.high=number
 
-
-
-
 root = tk.Tk()
 root.title(u"SE_Projects")
-root.geometry('600x400')
+root.geometry('1200x800')
 
 #--------クリックイベント--------#
 def click_word(event) :
@@ -39,14 +36,14 @@ horizontal_bar.config(command=canvas.xview)
 #Canvasのサイズ変更をScrollbarに通知
 canvas.config(yscrollcommand=vertical_bar.set, xscrollcommand=horizontal_bar.set)
 #スクロールの範囲(x_min, y_min, x_max, y_max)
-canvas.config(scrollregion=(0,0,1500,2000))
+canvas.config(scrollregion=(0,0,1600,2000))
 canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
 
 # Frame Widgetを生成
 frame = tk.Frame(canvas)
 
 # Frame Widgetを Canvas Widget上に配置（）
-canvas.create_window((0,0), window=frame, anchor=tk.NW, width=2000, height=2000)
+canvas.create_window((0,0), window=frame, anchor=tk.NW, width=2000, height=2500)
 #----------------------------------------------------------------------------------#
 
 File_data = open(sys.argv[1], "r", encoding='utf-8')
@@ -58,21 +55,22 @@ treelist = [a for a in treelist if a != '']
 
 nodes= (txt.split('nodes:')[1]).split('branches:')[0]
 nodeslist = list(nodes.split('\n'))
-
 branches=txt.split('branches:')[1]
 brancheslist = list(branches.split('\n'))
 brancheslist = [a for a in brancheslist if a != '']
 
 data = [Data_tree(node) for node in nodeslist if node != '']
 [d.addBranch([br.split(', ')[1] for br in brancheslist if br.startswith(d.number+',')]) for d in data]
-[d.addHigh([t.count('|--') for t in treelist if t.endswith(d.name)][0]) for d in data]
+[d.addHigh([t.count('|--') for t in treelist if t.startswith(d.name) or t.endswith(' '+d.name)][0]) for d in data]
 for d in data: print(d.number, d.name, d.branch, d.high)
 
 for d in data:
+    span = len(d.branch)
+    if span == 0:
+        span = 1
     Static = tk.Label(frame, text=d.name, relief="solid", font=("MS Serif",12))
-    Static.pack(anchor='w',expand=1)
+    Static.grid(column=d.high,row=d.number,rowspan=span,padx=12.5,pady=2,sticky='W')
     #イベントハンドラー
     Static.bind("<Button-1>", lambda event: click_word(event))
-
 
 root.mainloop()
