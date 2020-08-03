@@ -1,4 +1,5 @@
 import sys
+import time
 import tkinter as tk
 
 class Data_tree:
@@ -16,11 +17,11 @@ class Data_tree:
     def addWidth(self, number):
         self.width=number
     def verticalView(self, roots):
-        Static = tk.Label(roots, text=self.name, relief="solid", font=("MS Serif",12))
-        Static.place(x = self.x, y = self.y)
-        Static.bind("<Button-1>", lambda event: click_word(event))
+        static = tk.Label(roots, text=self.name, relief="solid", font=("MS Serif",12))
+        static.place(x = self.x, y = self.y)
+        static.bind("<Button-1>", lambda event: click_word(event))
         roots.update_idletasks()
-        self.addWidth(Static.winfo_width())
+        self.addWidth(static.winfo_width())
     def xypoint(self, y, x):
         self.x = x;
         self.y = y;
@@ -53,7 +54,6 @@ def drawline(data):
         branches = d.branch
         for branch in branches:
             f_point = data[branch-1].fpoint()
-            print("bx:", b_point[0], "by:", b_point[1], "fx:", f_point[0], "fy:", f_point[1])
             canvas.create_line(b_point[0], b_point[1], f_point[0], f_point[1], fill='black')
 
 def treeXYWrite(data, high, height, width, number):
@@ -100,8 +100,7 @@ frame = tk.Frame(canvas)
 canvas.create_window((0,0), window=frame, anchor=tk.NW, width=2000, height=2000)
 #----------------------------------------------------------------------------------#
 """
-canvas = tk.Canvas(root, width=1000, height=800)
-frame = tk.Frame(root)
+canvas = tk.Canvas(root, width=1000, height=2000)
 
 File_data = open(sys.argv[1], "r", encoding='utf-8')
 txt = File_data.read()
@@ -126,10 +125,23 @@ data = [Data_tree(node) for node in nodeslist if node != '']
 
 drawline(data)
 canvas.pack(fill=tk.BOTH)
-frame.pack()
 
 data.append(makeTopData(data))
 treeXYWrite(data, -1, 0, 0, len(data))
+
+print("再描画")
+time.sleep(3)
+
+canvas.delete("all")
+drawline(data)
+
+children = root.winfo_children()
+del children[0]
+for child in children:
+    print(child)
+    child.destroy()
+
+data = [d.verticalView(root) for d in data]
 
 #for d in data: print(d.number, d.name, d.branch, d.front, d.high, d.width, d.x, d.y)
 
