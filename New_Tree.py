@@ -141,17 +141,16 @@ canvas.delete("all")
 children = root.winfo_children()
 del children[0]
 for child in children:
-    #child.destroy()
-    # ラベル位置の移動
+    # print(data[children.index(child)].name)
     ###############アップデート###############
-    root.after(20)
-    child.place(x=0,y=0)
+    root.after(40)
+    child.place(x=data[children.index(child)].x,y=data[children.index(child)].y)
     root.update()
     #########################################
 
 drawline(data)
 ###############位置確認###############
-data = [d.verticalView(root) for d in data]
+#data = [d.verticalView(root) for d in data]
 
 #for d in data: print(d.number, d.name, d.branch, d.front, d.high, d.width, d.x, d.y)
 
