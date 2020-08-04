@@ -61,10 +61,11 @@ def treeXYWrite(data, high, height, width, number):
         return x
     x = height
     data[number-1].xypoint(height, width)
+    if len(data[number-1].branch) == 0: return x + 24
     for num in data[number-1].branch:
-        x=treeXYWrite(data, high + 1, x + 24, width+data[number-1].width + 25, num)
+        x = treeXYWrite(data, high + 1, x , width+data[number-1].width + 25, num)
     data[number-1].xypoint(height+(x-height-24)/2, width)
-    return x + 24
+    return x
 
 def makeTopData(data):
     t_data = Data_tree("0, null")
