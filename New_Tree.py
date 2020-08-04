@@ -58,7 +58,7 @@ def drawline(data):
 
 def treeXYWrite(data, high, height, width, number):
     if high != data[number-1].high:
-        return x
+        return height
     x = height
     data[number-1].xypoint(height, width)
     if len(data[number-1].branch) == 0: return x + 24
