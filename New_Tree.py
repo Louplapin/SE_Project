@@ -22,6 +22,10 @@ class Data_tree:
         static.bind("<Button-1>", lambda event: click_word(event))
         roots.update_idletasks()
         self.addWidth(static.winfo_width())
+        #######################
+        root.after(30)
+        root.update()
+        #######################
     def xypoint(self, y, x):
         self.x = x;
         self.y = y;
@@ -35,13 +39,12 @@ def treeView(self, high, number, frame):
     frameh = tk.Frame(frame, relief="solid", bd = 2)
     for num in number:
         Static = tk.Label(frameh, text=self.name,, font=("MS Serif",12))
-        
         self[num]
 """
 
 root = tk.Tk()
 root.title(u"SE_Projects")
-root.geometry('600x400')
+root.geometry('800x1000')
 
 #--------クリックイベント--------#
 def click_word(event) :
@@ -55,6 +58,8 @@ def drawline(data):
         for branch in branches:
             f_point = data[branch-1].fpoint()
             canvas.create_line(b_point[0], b_point[1], f_point[0], f_point[1], fill='black')
+            canvas.after(30)
+            canvas.update()
 
 def treeXYWrite(data, high, height, width, number):
     if high != data[number-1].high:
@@ -102,6 +107,7 @@ canvas.create_window((0,0), window=frame, anchor=tk.NW, width=2000, height=2000)
 #----------------------------------------------------------------------------------#
 """
 canvas = tk.Canvas(root, width=1000, height=2000)
+canvas.pack(fill=tk.BOTH)
 
 File_data = open(sys.argv[1], "r", encoding='utf-8')
 txt = File_data.read()
@@ -125,23 +131,26 @@ data = [Data_tree(node) for node in nodeslist if node != '']
 [d.verticalView(root) for d in data]
 
 drawline(data)
-canvas.pack(fill=tk.BOTH)
 
 data.append(makeTopData(data))
 treeXYWrite(data, -1, 0, 0, len(data))
 
-print("再描画")
-time.sleep(3)
-
+root.after(300)
 canvas.delete("all")
-drawline(data)
 
 children = root.winfo_children()
 del children[0]
 for child in children:
-    print(child)
-    child.destroy()
+    #child.destroy()
+    # ラベル位置の移動
+    ###############アップデート###############
+    root.after(20)
+    child.place(x=0,y=0)
+    root.update()
+    #########################################
 
+drawline(data)
+###############位置確認###############
 data = [d.verticalView(root) for d in data]
 
 #for d in data: print(d.number, d.name, d.branch, d.front, d.high, d.width, d.x, d.y)
