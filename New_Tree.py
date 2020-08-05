@@ -78,7 +78,7 @@ def makeTopData(data):
     t_data = Data_tree("0, null")
     t_data.addBranch([d.number for d in data if d.high == 0])
     t_data.addHigh(-1)
-    t_data.addWidth(-25)
+    t_data.addWidth(0)
     t_data.xypoint(0,-25)
     return t_data
 
