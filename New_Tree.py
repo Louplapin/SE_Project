@@ -58,20 +58,36 @@ def drawline(data):
         for branch in branches:
             f_point = data[branch-1].fpoint()
             canvas.create_line(b_point[0], b_point[1], f_point[0], f_point[1], fill='black')
-            canvas.after(30)
+            # canvas.after(30)
             canvas.update()
 
-def treeXYWrite(data, high, height, width, number):
+def treeXYWrite(data, high, height, width, number, children):
     if high != data[number-1].high:
         return height + 24
     x = height
     data[number-1].xypoint(height, max(width, data[number-1].x))
     # ここでlabelと線の移動を行う関数を呼び出す
+    root.after(40)
+    # children[number-1].place(x=data[number-1].x,y=data[number-1].y)
+    if data[number-1].name != 'null':
+        children[number-1].place(x=data[number-1].x,y=data[number-1].y)
+        root.update()
+    canvas.delete("all")
+    drawline(data)
+    # root.after(10)
+
     if len(data[number-1].branch) == 0: return x + 24
     for num in data[number-1].branch:
-        x = treeXYWrite(data, high + 1, x , width+data[number-1].width + 25, num)
+        x = treeXYWrite(data, high + 1, x , width+data[number-1].width + 25, num, children)
     data[number-1].xypoint(height+(x-height-24)/2, width)
     # ここでlabelと線の移動を行う関数を呼び出す
+    if data[number-1].name != 'null':
+        children[number-1].place(x=data[number-1].x,y=data[number-1].y)
+        root.update()
+    canvas.delete("all")
+    drawline(data)
+    # root.after(10)
+
     return x
 
 def makeTopData(data):
@@ -137,22 +153,27 @@ data = [Data_tree(node) for node in nodeslist if node != '']
 drawline(data)
 
 data.append(makeTopData(data))
-treeXYWrite(data, -1, 0, -25, len(data))
-
-root.after(300)
-canvas.delete("all")
 
 children = root.winfo_children()
 del children[0]
-for child in children:
-    # print(data[children.index(child)].name)
-    ###############アップデート###############
-    root.after(40)
-    child.place(x=data[children.index(child)].x,y=data[children.index(child)].y)
-    root.update()
+
+treeXYWrite(data, -1, 0, -25, len(data),children)
+
+# root.after(300)
+# canvas.delete("all")
+
+
+# children = root.winfo_children()
+# del children[0]
+# for child in children:
+#     # print(data[children.index(child)].name)
+#     ###############アップデート###############
+#     root.after(40)
+#     child.place(x=data[children.index(child)].x,y=data[children.index(child)].y)
+#     root.update()
     #########################################
 
-drawline(data)
+# drawline(data)
 ###############位置確認###############
 #data = [d.verticalView(root) for d in data]
 
