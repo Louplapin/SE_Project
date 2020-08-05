@@ -63,13 +63,15 @@ def drawline(data):
 
 def treeXYWrite(data, high, height, width, number):
     if high != data[number-1].high:
-        return height
+        return height + 24
     x = height
-    data[number-1].xypoint(height, width)
+    data[number-1].xypoint(height, max(width, data[number-1].x))
+    # ここでlabelと線の移動を行う関数を呼び出す
     if len(data[number-1].branch) == 0: return x + 24
     for num in data[number-1].branch:
         x = treeXYWrite(data, high + 1, x , width+data[number-1].width + 25, num)
     data[number-1].xypoint(height+(x-height-24)/2, width)
+    # ここでlabelと線の移動を行う関数を呼び出す
     return x
 
 def makeTopData(data):
@@ -77,6 +79,7 @@ def makeTopData(data):
     t_data.addBranch([d.number for d in data if d.high == 0])
     t_data.addHigh(-1)
     t_data.addWidth(-25)
+    t_data.xypoint(0,-25)
     return t_data
 
 
@@ -125,6 +128,7 @@ brancheslist = [a for a in brancheslist if a != '']
 
 data = [Data_tree(node) for node in nodeslist if node != '']
 [d.addBranch([int(br.split(', ')[1]) for br in brancheslist if br.startswith(str(d.number)+',')]) for d in data]
+[d.addBranch([a for _,a in sorted(zip([data[nums-1].name for nums in d.branch],d.branch))]) for d in data]
 [d.addFronts([int(br.split(', ')[0]) for br in brancheslist if br.endswith(' '+str(d.number))]) for d in data]
 [d.addHigh([t.count('|--') for t in treelist if t.startswith(d.name) or t.endswith(' '+d.name)][0]) for d in data]
 [d.xypoint((d.number-1)*24, 0) for d in data]
@@ -133,7 +137,7 @@ data = [Data_tree(node) for node in nodeslist if node != '']
 drawline(data)
 
 data.append(makeTopData(data))
-treeXYWrite(data, -1, 0, 0, len(data))
+treeXYWrite(data, -1, 0, -25, len(data))
 
 root.after(300)
 canvas.delete("all")
