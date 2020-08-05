@@ -67,8 +67,7 @@ def treeXYWrite(data, high, height, width, number, children):
     x = height
     data[number-1].xypoint(height, max(width, data[number-1].x))
     # ここでlabelと線の移動を行う関数を呼び出す
-    root.after(40)
-    # children[number-1].place(x=data[number-1].x,y=data[number-1].y)
+    root.after(10)
     if data[number-1].name != 'null':
         children[number-1].place(x=data[number-1].x,y=data[number-1].y)
         root.update()
@@ -81,6 +80,7 @@ def treeXYWrite(data, high, height, width, number, children):
         x = treeXYWrite(data, high + 1, x , width+data[number-1].width + 25, num, children)
     data[number-1].xypoint(height+(x-height-24)/2, width)
     # ここでlabelと線の移動を行う関数を呼び出す
+    root.after(10)
     if data[number-1].name != 'null':
         children[number-1].place(x=data[number-1].x,y=data[number-1].y)
         root.update()
