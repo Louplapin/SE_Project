@@ -1,3 +1,18 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+"""
+ここに、プログラム全体の説明を記載
+て
+す
+と
+"""
+
+__author__ = "Author Name"
+__status__ = "SE_Project"
+__version__ = "1.0"
+__date__    = "06 August 2020"
+
 import sys
 import time
 import tkinter as tk
@@ -40,6 +55,9 @@ root.geometry('600x400')
 
 #--------クリックイベント--------#
 def click_word(event) :
+    """
+    関数の説明
+    """
     print(event.widget['text'])
 #-------------------------------#
 

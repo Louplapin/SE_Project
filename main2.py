@@ -1,3 +1,15 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+"""
+ここに、プログラム全体の説明を記載
+"""
+
+__author__ = "Author Name"
+__status__ = "SE_Project"
+__version__ = "1.0"
+__date__    = "06 August 2020"
+
 import sys
 import time
 import tkinter as tk
@@ -34,7 +46,6 @@ class Data_tree:
     def bpoint(self):
         return self.x + self.width, self.y + 12
 
-
 class lines:
     def __init__(self, name):
         self.name = name
@@ -50,6 +61,9 @@ root.geometry('600x400')
 
 #--------クリックイベント--------#
 def click_word(event) :
+    """
+    関数の説明
+    """
     print(event.widget['text'])
 #-------------------------------#
 
@@ -117,7 +131,7 @@ horizontal_bar.config(command=scroll_canvas.xview)
 #スクロールの通知
 scroll_canvas.config(yscrollcommand=vertical_bar.set, xscrollcommand=horizontal_bar.set)
 #スクロールの範囲(x_min, y_min, x_max, y_max)
-scroll_canvas.config(scrollregion=(0,0,1500,2000))
+scroll_canvas.config(scrollregion=(0,0,2000,2000))
 scroll_canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
 
 main_frame = tk.Frame(scroll_canvas)
@@ -125,7 +139,7 @@ main_frame = tk.Frame(scroll_canvas)
 scroll_canvas.create_window((0,0), window=main_frame, anchor=tk.NW, width=2000, height=2000)
 #-------------------------------#
 
-canvas = tk.Canvas(main_frame, width=1000, height=1200)
+canvas = tk.Canvas(main_frame, width=2000, height=2000)
 canvas.pack(fill=tk.BOTH)
 
 File_data = open(sys.argv[1], "r", encoding='utf-8')
@@ -161,10 +175,8 @@ children = main_frame.winfo_children()
 del children[0]
 
 treeXYWrite(data, -1, 0, -25, len(data),children)
-m = max([d.bpoint()[1] for d in data])
-# 領域の最大値ください。 → ＋20pxぐらい足しゃーいいよ -> mが領域の最大値になってると思う(横幅)
-# 高さの方は、listの数(data)x26くらいでいい感じになると思うよ
-# scroll_canvas.config(scrollregion=(0,0,x_max,y_max))
-scroll_canvas.config(scrollregion=(0,0,1200,1200))
+max_x = max([d.bpoint()[0] for d in data]) + 26
+max_y = max([d.bpoint()[1] for d in data]) + 26
+scroll_canvas.config(scrollregion=(0,0,max_x,max_y))
 
 root.mainloop()
