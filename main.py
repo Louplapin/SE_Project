@@ -169,10 +169,12 @@ children = main_frame.winfo_children()
 del children[0]
 
 treeXYWrite(data, -1, 0, -25, len(data),children)
-m = max([d.bpoint()[1] for d in data])
+max_x = max([d.bpoint()[0] for d in data]) + 26
+max_y = max([d.bpoint()[1] for d in data]) + 26
 # 領域の最大値ください。 → ＋20pxぐらい足しゃーいいよ -> mが領域の最大値になってると思う(横幅)
 # 高さの方は、listの数(data)x26くらいでいい感じになると思うよ
 # scroll_canvas.config(scrollregion=(0,0,x_max,y_max))
-scroll_canvas.config(scrollregion=(0,0,1200,1200))
+# scroll_canvas.config(scrollregion=(0,0,1200,1200))
+scroll_canvas.config(scrollregion=(0,0,max_x,max_y))
 
 root.mainloop()
