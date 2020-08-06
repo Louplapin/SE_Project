@@ -77,7 +77,10 @@ def drawline(l_data):
 #-------------再描画-------------#
 def treeXYWrite(data, high, height, width, num, children):
     x = height
-    data[num-1].xypoint(min(height, data[num-1].y), max(width, data[num-1].x))
+    if len(data[num-1].front):
+        data[num-1].xypoint(height, max(width, data[num-1].x))
+    else:
+        data[num-1].xypoint(min(height, data[num-1].y), max(width, data[num-1].x))
 
     root.after(10)
     if data[num-1].name != 'null':
