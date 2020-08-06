@@ -6,7 +6,6 @@
 """
 
 __author__ = "Author Name"
-__status__ = "SE_Project"
 __version__ = "1.0"
 __date__    = "06 August 2020"
 
