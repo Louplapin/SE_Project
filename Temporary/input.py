@@ -1,11 +1,17 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-"""
-ここに、プログラム全体の説明を記載
-"""
+import sys
 
-def InputFile():
+def fileReed():
+    """
+    ファイル名が与えられるとそのファイルの中身をtxtに代入し、
+    「trees:」、「nodes:」、「branches:」のデータに
+    それぞれ分割を行う。
+    分割されたものに対して改行で分割を行いlistに格納する
+    listの中から空の要素を取り除く
+    
+    """
     File_data = open(sys.argv[1], "r", encoding='utf-8')
     txt = File_data.read()
 
@@ -20,3 +26,5 @@ def InputFile():
     branches=txt.split('branches:')[1]
     brancheslist = list(branches.split('\n'))
     brancheslist = [a for a in brancheslist if a != '']
+    
+    return treelist, nodeslist, brancheslist
