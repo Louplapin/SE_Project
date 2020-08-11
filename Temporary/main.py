@@ -35,7 +35,7 @@ def main():
     
     DataControl.drowVerticals(data, main_frame, canvas)
     
-    DataControl.drowTrees(data, -1, 0, -25, len(data), main_frame, canvas)
+    DataControl.drowTrees(data, -1, 0, -25, len(data), len(data[-1].branch), main_frame, canvas)
     
     max_x = max([d.bpoint()[0] for d in data]) + 26
     max_y = max([d.bpoint()[1] for d in data]) + 26

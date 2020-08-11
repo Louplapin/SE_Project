@@ -15,6 +15,7 @@ class tree:
         self.addHigh(-1)
         self.addWidth(0)
         self.xypoint(0,-25)
+        self.flag = False
         
     def addName(self, name):
         self.name = name
@@ -33,3 +34,5 @@ class tree:
         return self.x, self.y + 12
     def bpoint(self):
         return self.x + self.width, self.y + 12
+    def chack(self):
+        self.flag = True
