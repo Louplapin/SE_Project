@@ -9,9 +9,50 @@
 Java・Python・Smalltalkの標準ライブラリ（必要であれば拡張ライブラリ）を使用して開発を行う。Macintoshシリーズをターゲットにしているが、実装に用いるJava・Python・Smalltalkはプラットフォーム非依存性を仮想マシンによって実現しているプログラミング言語である。したがって、開発したアプリケーションはLinuxやWindowsなどでも動作することが望ましい。
 
 # ファイル構成
-後ほど記述予定
+SE_Project
+├── src (プログラムのソースコードディレクトリ)
+│  ├── main.py
+│  └── DataControl.py
+│  └── input.py
+│  └── lineClass.py
+│  └── treeClass.py
+│  └── view.py
+├── resource (読み取りテキストファイル保管ディレクトリ)
+│  ├── forest.txt
+│  └── semilattice.txt
+│  └── tree.txt
+├── program_documentation (プログラムドキュメントディレクトリ)
+│  ├── main.html
+│  └── DataControl.html
+│  └── input.html
+│  └── lineClass.html
+│  └── treeClass.html
+│  └── view.html
+├── project_document (プロジェクトドキュメントディレクトリ)
+│  ├── index.html
+│  ├── img
+│  │  ├── basicdesign.jpg
+│  │  ├── DataConrol.jpg
+│  │  ├── input.jpg
+│  │  ├── lineClass.jpg
+│  │  ├── main.jpg
+│  │  ├── treeClass.jpg
+│  │  └── view.jpg
+│  ├── BasicDesign
+│  │  └── index.html
+│  ├── DetailDesign
+│  │  └── index.html
+│  ├── DevelopmentPlan
+│  │  └── index.html
+│  ├── DevelopmentResult
+│  │  └── index.html
+│  ├── Requirement
+│  │  └── index.html
+│  ├── TestResukt
+│  │  └── index.html
+└──README.md
 
-# チュートリアル 
+# チュートリアル
 ## Python
 - [公式ドキュメント](https://docs.python.org/ja/3.7/)
 ## Tkinker

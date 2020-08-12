@@ -22,7 +22,7 @@ def createScroll(layer, x, y):
     scroll_canvasとmain_frameを返す
     """
     scroll_canvas = tk.Canvas(layer)
-    
+
     vertical_bar = tk.Scrollbar(layer, orient=tk.VERTICAL)
     vertical_bar.pack(side=tk.RIGHT, fill=tk.Y)
     vertical_bar.config(command=scroll_canvas.yview)
@@ -30,25 +30,25 @@ def createScroll(layer, x, y):
     horizontal_bar = tk.Scrollbar(layer, orient=tk.HORIZONTAL)
     horizontal_bar.pack(side=tk.BOTTOM, fill=tk.X)
     horizontal_bar.config(command=scroll_canvas.xview)
-    
+
     scroll_canvas.config(yscrollcommand=vertical_bar.set, xscrollcommand=horizontal_bar.set)
-    
+
     scroll_canvas.config(scrollregion=(0,0,x,y))
     scroll_canvas.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
 
     main_frame = tk.Frame(scroll_canvas)
 
     scroll_canvas.create_window((0,0), window=main_frame, anchor=tk.NW, width=x, height=y)
-    
+
     return scroll_canvas, main_frame
-    
+
 def createCanvas(layer, x, y):
     """
     指定したframeに対してcanvasを作成する
     """
     canvas = tk.Canvas(layer, width=2000, height=2000)
     canvas.pack(fill=tk.BOTH)
-    
+
     return canvas
 
 def canvasConfig(layer, x, y):

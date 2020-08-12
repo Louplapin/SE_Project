@@ -10,7 +10,6 @@ def fileReed():
     それぞれ分割を行う。
     分割されたものに対して改行で分割を行いlistに格納する
     listの中から空の要素を取り除く
-    
     """
     File_data = open(sys.argv[1], "r", encoding='utf-8')
     txt = File_data.read()
@@ -26,5 +25,5 @@ def fileReed():
     branches=txt.split('branches:')[1]
     brancheslist = list(branches.split('\n'))
     brancheslist = [a for a in brancheslist if a != '']
-    
+
     return treelist, nodeslist, brancheslist
