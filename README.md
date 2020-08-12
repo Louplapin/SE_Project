@@ -9,6 +9,7 @@
 Java・Python・Smalltalkの標準ライブラリ（必要であれば拡張ライブラリ）を使用して開発を行う。Macintoshシリーズをターゲットにしているが、実装に用いるJava・Python・Smalltalkはプラットフォーム非依存性を仮想マシンによって実現しているプログラミング言語である。したがって、開発したアプリケーションはLinuxやWindowsなどでも動作することが望ましい。
 
 # ファイル構成
+```
 SE_Project
 ├── src (プログラムのソースコードディレクトリ)
 │  ├── main.py
@@ -51,6 +52,7 @@ SE_Project
 │  ├── TestResukt
 │  │  └── index.html
 └──README.md
+```
 
 # チュートリアル
 ## Python
