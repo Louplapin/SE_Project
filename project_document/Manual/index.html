@@ -229,7 +229,7 @@ th {
 }
 -->
 </style>
-<title>プロジェクト演習「Model-View-Controller」詳細設計書</title>
+<title>プロジェクト演習「Model-View-Controller」マニュアル</title>
 </head>
 <body>
 <div id="menu">
@@ -238,118 +238,107 @@ th {
   <li><a href="../Requirement/index.html">要求仕様書</a></li>
   <li><a href="../DevelopmentPlan/index.html">開発計画書</a></li>
   <li><a href="../BasicDesign/index.html">基本設計書</a></li>
-  <li><a href="../DetailDesign/index.html" class="current">詳細設計書</a></li>
+  <li><a href="../DetailDesign/index.html">詳細設計書</a></li>
   <li><a href="../TestSpecification/index.html">テスト仕様書</a></li>
   <li><a href="../TestResult/index.html">テスト結果</a></li>
   <li><a href="../DevelopmentResult/index.html">開発実績</a></li>
   <li><a href="../Program/index.html">プログラム</a></li>
-  <li><a href="../Manual/index.html">マニュアル</a></li>
+  <li><a href="../Manual/index.html" class="current">マニュアル</a></li>
 </ul>
 </div>
 <hr>
-<h2>プロジェクト演習「Model-View-Controller」詳細設計書</h2>
+<h2>プロジェクト演習「Model-View-Controller」マニュアル</h2>
 <ul>
-  <li><a href="#Main">main</a>（メイン）</li>
-  <li><a href="#Input">input</a>（ファイル読み込み）</li>
-  <li><a href="#View">view</a>（ビュー）</li>
-  <li><a href="#Line">lineClass</a>（線を引く）</li>
-  <li><a href="#Tree">treeClass</a>（木構造のデータ整理）</li>
+  <li><a href="#Clone">ファイルのダウンロード</a></li>
+  <li><a href="#Execute">プログラムの実行</a></li>
+  <li><a href="#Directory">ディレクトリ構造(appendix)</a></li>
 </ul>
 <div class="belt">
-<h3><a name="Main">main</a>（メイン）</h3>
+<h3><a name="Clone">ファイルのダウンロード</a></h3>
 </div>
-<table summary="table">
-  <tbody>
-    <tr>
-      <td>
-      <table class="content" summary="table">
-        <tbody>
-          <tr>
-            <td class="center-small"><a href="../img/main.jpg"><img class="borderless" src="../img/main.jpg" width="450px", height="420px" alt="mian.jpg"></a></td>
-            <td class="center"><a href="../../program_documentation/main.html">詳細説明（main）</a></td>
-          </tr>
-        </tbody>
-      </table>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<li>Gitクローン</li>
+　　$ mkdir ディレクトリ名<br>
+　　$ cd ディレクトリ名<br>
+　　$ git clone https://github.com/Louplapin/SE_Project
+<hr>
+<li>GitHubページから直接ダウンロード</li>
+　　<a href="https://github.com/Louplapin/SE_Project">Github</a>を開く<br>
+　　Zipファイルをダウンロード<br>
+　　$ unzip SE_Project-master.zip<br>
+
 <div class="belt">
-<h3><a name="Input">input</a>（ファイル読み込み）</h3>
+<h3><a name="Execute">プログラムの実行</a></h3>
 </div>
-<table summary="table">
-  <tbody>
-    <tr>
-      <td>
-      <table class="content" summary="table">
-        <tbody>
-          <tr>
-            <td class="center-small"><a href="../img/input.jpg"><img class="borderless" src="../img/input.jpg" width="450px", height="420px" alt="input.jpg"></a></td>
-            <td class="center"><a href="../../program_documentation/input.html">詳細説明（input）</a></td>
-          </tr>
-        </tbody>
-      </table>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<li>Gitクローンした場合</li>
+　　$ cd SE_Project<br>
+　　$ cd src<br>
+　　$ Python main.py 読み込むファイル名<br><br>
+　　※ tree.txtを読み込んで実行したい場合には？<br>
+　　$ Python main.py ../resource/tree.txt
+<hr>
+<li>GitHubページから直接ダウンロードした場合</li>
+　　$ cd SE_Project-master<br>
+　　$ cd src<br>
+　　$ Python main.py 読み込むファイル名<br>
+<br>
+　　例 tree.txtを読み込んで実行したい場合には？<br>
+　　$ Python main.py ../resource/tree.txt
+
 <div class="belt">
-<h3><a name="View">view</a>（ビュー）</h3>
+<h3><a name="Directory">ディレクトリ構造(appendix)</a></h3>
 </div>
-<table summary="table">
-  <tbody>
-    <tr>
-      <td>
-      <table class="content" summary="table">
-        <tbody>
-          <tr>
-            <td class="center-small"><a href="../img/view.jpg"><img class="borderless" src="../img/view.jpg" width="450px", height="420px" alt="view.jpg"></a></td>
-            <td class="center"><a href="../../program_documentation/view.html">詳細説明（view）</a></td>
-          </tr>
-        </tbody>
-      </table>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<div class="belt">
-<h3><a name="Line">lineClass</a>（線を引く）</h3>
-</div>
-<table summary="table">
-  <tbody>
-    <tr>
-      <td>
-      <table class="content" summary="table">
-        <tbody>
-          <tr>
-            <td class="center-small"><a href="../img/lineClass.jpg"><img class="borderless" src="../img/lineClass.jpg" width="450px", height="420px" alt="lineClass.jpg"></a></td>
-            <td class="center"><a href="../../program_documentation/lineClass.html">詳細説明（lineClass）</a></td>
-          </tr>
-        </tbody>
-      </table>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<div class="belt">
-<h3><a name="Tree">treeClass</a>（木構造のデータ整理）</h3>
-</div>
-<table summary="table">
-  <tbody>
-    <tr>
-      <td>
-      <table class="content" summary="table">
-        <tbody>
-          <tr>
-            <td class="center-small"><a href="../img/treeClass.jpg"><img class="borderless" src="../img/treeClass.jpg" width="450px", height="420px" alt="treeClass.jpg"></a></td>
-            <td class="center"><a href="../../program_documentation/treeClass.html">詳細説明（lineClass）</a></td>
-          </tr>
-        </tbody>
-      </table>
-      </td>
-    </tr>
-  </tbody>
-</table>
+SE_Project<br>
+├── src (プログラムのソースコードディレクトリ)<br>
+│  ├── main.py<br>
+│  └── DataControl.py<br>
+│  └── input.py<br>
+│  └── lineClass.py<br>
+│  └── treeClass.py<br>
+│  └── view.py<br>
+├── resource (読み取りテキストファイル保管ディレクトリ)<br>
+│  ├── forest.txt<br>
+│  └── semilattice.txt<br>
+│  └── tree.txt<br>
+├── program_documentation (プログラムドキュメントディレクトリ)<br>
+│  ├── main.html<br>
+│  └── DataControl.html<br>
+│  └── input.html<br>
+│  └── lineClass.html<br>
+│  └── treeClass.html<br>
+│  └── view.html<br>
+├── project_document (プロジェクトドキュメントディレクトリ)<br>
+│  ├── index.html<br>
+│  ├── img<br>
+│  │  ├── basicdesign.jpg<br>
+│  │  ├── DataConrol.jpg<br>
+│  │  ├── input.jpg<br>
+│  │  ├── lineClass.jpg<br>
+│  │  ├── macbook-air.jpg<br>
+│  │  ├── main.jpg<br>
+│  │  ├── plan.jpg<br>
+│  │  ├── real.jpg<br>
+│  │  ├── treeClass.jpg<br>
+│  │  └── view.jpg<br>
+│  ├── BasicDesign<br>
+│  │  └── index.html<br>
+│  ├── DetailDesign<br>
+│  │  └── index.html<br>
+│  ├── DevelopmentPlan<br>
+│  │  └── index.html<br>
+│  ├── DevelopmentResult<br>
+│  │  └── index.html<br>
+│  ├── Manual<br>
+│  │  └── index.html<br>
+│  ├── Program<br>
+│  │  └── index.html<br>
+│  ├── Requirement<br>
+│  │  └── index.html<br>
+│  ├── TestResukt<br>
+│  │  └── index.html<br>
+│  ├── TestSpecification<br>
+│  │  └── index.html<br>
+└──README.md<br>
+
 <hr>
 <div class="right-small">Copyright 2020 group, Updated: 2020/07/31 (Created: 2020/07/31)</div>
 </body>
