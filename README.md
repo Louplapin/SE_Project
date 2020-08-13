@@ -1,5 +1,9 @@
+# 注意点
+このリポジトリは、長期的課題提出締め切りから、約半年間のみパブリックリポジトリとする。
+それ以降は、プライベートとリポジトリとして扱う。
+
 # 実行環境
-- Python3.7.0
+- Python3.7.0以降
 - Tkinter
 
 # 目標性能
@@ -30,36 +34,38 @@ SE_Project
 │  └── treeClass.html
 │  └── view.html
 ├── project_document (プロジェクトドキュメントディレクトリ)
-│  ├── index.html<br>
-│  ├── img<br>
-│  │  ├── basicdesign.jpg<br>
-│  │  ├── DataConrol.jpg<br>
-│  │  ├── input.jpg<br>
-│  │  ├── lineClass.jpg<br>
-│  │  ├── macbook-air.jpg<br>
-│  │  ├── main.jpg<br>
-│  │  ├── plan.jpg<br>
-│  │  ├── real.jpg<br>
-│  │  ├── treeClass.jpg<br>
-│  │  └── view.jpg<br>
-│  ├── BasicDesign<br>
-│  │  └── index.html<br>
-│  ├── DetailDesign<br>
-│  │  └── index.html<br>
-│  ├── DevelopmentPlan<br>
-│  │  └── index.html<br>
-│  ├── DevelopmentResult<br>
-│  │  └── index.html<br>
-│  ├── Manual<br>
-│  │  └── index.html<br>
-│  ├── Program<br>
-│  │  └── index.html<br>
-│  ├── Requirement<br>
-│  │  └── index.html<br>
-│  ├── TestResukt<br>
-│  │  └── index.html<br>
-│  ├── TestSpecification<br>
-│  │  └── index.html<br>
+│  ├── index.html
+│  ├── img
+│  │  ├── basicdesign.jpg
+│  │  ├── DataConrol.jpg
+│  │  ├── input.jpg
+│  │  ├── layer.jpg
+│  │  ├── lineClass.jpg
+│  │  ├── macbook-air.jpg
+│  │  ├── main.jpg
+│  │  ├── plan.jpg
+│  │  ├── real.jpg
+│  │  ├── sequence.jpg
+│  │  ├── treeClass.jpg
+│  │  └── view.jpg
+│  ├── BasicDesign
+│  │  └── index.html
+│  ├── DetailDesign
+│  │  └── index.html
+│  ├── DevelopmentPlan
+│  │  └── index.html
+│  ├── DevelopmentResult
+│  │  └── index.html
+│  ├── Manual
+│  │  └── index.html
+│  ├── Program
+│  │  └── index.html
+│  ├── Requirement
+│  │  └── index.html
+│  ├── TestResukt
+│  │  └── index.html
+│  ├── TestSpecification
+│  │  └── index.html
 └──README.md
 ```
 
